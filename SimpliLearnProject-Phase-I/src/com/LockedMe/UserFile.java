@@ -47,13 +47,16 @@ public class UserFile implements FileAPI {
 
         File file = getDirectoryPath(fileToBeSearched);
 
-        if(file.exists()){
-            System.out.println("Found the file "+ "'"+  file.getName() +"'");
+        String[] fileList = getDirectoryPath().list();
 
+        for (String tempFileName: fileList) {
+            if (tempFileName.equals(fileToBeSearched+".txt")) {
+
+                System.out.println("Successfully found the file " + "'" + file.getName() + "'");
+                return ;
+            }
         }
-        else {
-            System.out.println("Requested file "+ fileToBeSearched +" is not found");
-        }
+        System.out.println("Requested file "+ fileToBeSearched +" is not found");
     }
 
 
@@ -67,13 +70,23 @@ public class UserFile implements FileAPI {
     @Override
     public void deleteFile (String fileToDelete){
         File file = getDirectoryPath(fileToDelete);
-        if (file.delete()){
-            System.out.println("File with the name " + "'" +file.getName()+ "' "+"got deleted");
+
+        String[] fileList = getDirectoryPath().list();
+
+        for (String tempFileName: fileList) {
+            if (tempFileName.equals(fileToDelete+".txt")) {
+                if (file.delete()) {
+                    System.out.println("File: " + "'" +file.getName()+ "' "+"got deleted");
+                    return;
+                }
+            }
         }
-        else {
-            System.out.println("Specified file not found");
-        }
+        System.out.println("Specified file: "+"'"+fileToDelete+"'"+" not found");
+
     }
+
+
+
     //Returns File object with root directory+fileName
     private static File getDirectoryPath(String fileName){
         String directoryPath = System.getProperty("user.dir")+"\\root\\";
