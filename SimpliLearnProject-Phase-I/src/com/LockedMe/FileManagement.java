@@ -8,7 +8,7 @@ public class FileManagement {
         System.out.println("*****************************************");
         System.out.println("LockedME welcomes you! Enjoy our services");
         System.out.println("*****************************************");
-        System.out.println("Author:Dhruva Kumar Renuka");
+        System.out.println("Author:Dhruva Kumar Renuka\n");
         boolean isTrue = true;
         do {
             System.out.println("Make a choice to use the specified service");
@@ -76,7 +76,7 @@ public class FileManagement {
 
                     // Add file option
                     case "1":
-                        System.out.println("Enter the file name with extension you wish to ADD");
+                        System.out.println("Enter the file name you wish to ADD");
                         String fileToAdd = s.nextLine();
                         user.addFile(fileToAdd);
                         break;
@@ -90,7 +90,7 @@ public class FileManagement {
 
                     //Search file option
                     case "3":
-                        System.out.println("Enter the file name with extension you wish to SEARCH for");
+                        System.out.println("Enter the file name you wish to SEARCH for");
                         String fileToSearch = s.nextLine();
                         user.searchFile(fileToSearch);
                         break;

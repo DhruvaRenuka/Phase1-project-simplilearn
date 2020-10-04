@@ -52,11 +52,11 @@ public class UserFile implements FileAPI {
         for (String tempFileName: fileList) {
             if (tempFileName.equals(fileToBeSearched+".txt")) {
 
-                System.out.println("Successfully found the file " + "'" + file.getName() + "'");
+                System.out.println("Successfully found the file " + "'" + file.getName() + "'\n");
                 return ;
             }
         }
-        System.out.println("Requested file "+ fileToBeSearched +" is not found");
+        System.out.println("Requested file "+ fileToBeSearched +" is not found\n");
     }
 
 
@@ -76,12 +76,12 @@ public class UserFile implements FileAPI {
         for (String tempFileName: fileList) {
             if (tempFileName.equals(fileToDelete+".txt")) {
                 if (file.delete()) {
-                    System.out.println("File: " + "'" +file.getName()+ "' "+"got deleted");
+                    System.out.println("File: " + "'" +file.getName()+ "' "+"got deleted\n");
                     return;
                 }
             }
         }
-        System.out.println("Specified file: "+"'"+fileToDelete+"'"+" not found");
+        System.out.println("Specified file: "+"'"+fileToDelete+"'"+" not found\n");
 
     }
 
